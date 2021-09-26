@@ -1,4 +1,4 @@
-# Work-Day-Scheduler# Javascript-Quiz
+# Work-Day-Scheduler
 
 
 <p> My personal objective in regard to this project was to add functioning javascript to a page with html and css already provided. In this case my goal was to create a simple day planner that would present the current date with a functioning clock and snippets of the page divided into hour long sections with each section capable of storing that days event data in local storage. Each hour-long snippet would also be color coded depending on the present hour.
