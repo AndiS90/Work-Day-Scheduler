@@ -17,10 +17,10 @@ I started by creating variables holding the hour snippet elements of the html pa
 ## Click the links below to access the page and repository respectively.
 <br>
 
- - [Work-Day-Scheduler-Page](/)
+ - [Work-Day-Scheduler-Page](https://andis90.github.io/Work-Day-Scheduler/)
 <br>
 
-- [Work-Day-Scheduler Repository](https://github.com/AndiS90/Javascript-Quiz)
+- [Work-Day-Scheduler Repository](https://github.com/AndiS90/Work-Day-Scheduler/)
 <br>
 
 ![Screenshot](./assets/images/screenshot.png)
@@ -34,3 +34,4 @@ I started by creating variables holding the hour snippet elements of the html pa
 ### [License](./assets/License.txt)
 
 <br>
+s
