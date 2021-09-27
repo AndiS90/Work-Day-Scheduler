@@ -22,7 +22,12 @@ var button5p = $('#button-5p');
 
 buttonArray = [button9a, button10a, button11a, button12p, button1p, button2p, button3p, button4p, button5p];
 
+init();
 
+function init() {
+ getItems();
+ setColors();
+}
 
 
 
@@ -36,52 +41,53 @@ function displayTime() {
 
 setInterval(displayTime, 1000);
 
-var rightNow = moment();
-for (i = 0; i < hoursArray.length; i++) {
-  var textArea = hoursArray[i];
-  var hour = moment(textArea.id, 'hh_A');
+function setColors() {
+  var rightNow = moment();
+  for (i = 0; i < hoursArray.length; i++) {
+    var textArea = hoursArray[i];
+    var hour = moment(textArea[0].id.replace('_', ' '), 'hh A');
 
-  if (rightNow.isAfter(hour, "hour")) {
-    hoursArray[i].addClass("past");
+    if (rightNow.isAfter(hour, "hour")) {
+      hoursArray[i].addClass("past");
 
-  } else if (rightNow.isBefore(hour, "hour")) {
-    hoursArray[i].addClass("future");
+    } else if (rightNow.isBefore(hour, "hour")) {
+      hoursArray[i].addClass("future");
 
-  } else {
-    hoursArray[i].addClass("present");
+    } else {
+      hoursArray[i].addClass("present");
+
+    }
 
   }
-
 }
 
-//retrieves high scores at beginning of game, if empty, sets a default list
+setInterval(setColors, 1000);
+
 function getItems() {
   var dayItems = JSON.parse(localStorage.getItem("dailyItems"));
   if (dayItems !== null) {
     for (j = 0; j < hoursArray.length; j++) {
-      hoursArray[j].text= (hoursArray[j]);
+      hoursArray[j].text(dayItems[j]);
     }
   } else {
-    var hsArray = [{
-      highScore: 01,
-      initials: "AAA",
-    }, {
-      highScore: 00,
-      initials: "AAA",
-    }, {
-      highScore: 00,
-      initials: "AAA",
-    }, {
-      highScore: 00,
-      initials: "AAA",
-    }, {
-      highScore: 00,
-      initials: "AAA",
-    }];
+    blankArray = ["", "", "", "", "", "", "", "", ""];
 
-    localStorage.setItem("highScores", JSON.stringify(hsArray));
 
-    getHighScores();
+    localStorage.setItem("dailyItems", JSON.stringify(blankArray));
+
+    getItems();
 
   }
 }
+
+function saveItems(){
+
+  var texts = JSON.parse(localStorage.getItem("dailyItems"));
+  for(var j = 0; j < hoursArray.length; j++) {
+    texts[j] = hoursArray[j].val();
+  }
+  localStorage.setItem("dailyItems", JSON.stringify(texts));
+}
+
+
+buttonArray.forEach(item => item.on("click", saveItems));
