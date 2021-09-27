@@ -31,7 +31,7 @@ I started by creating variables holding the hour snippet elements of the html pa
  
 <br>
 
-### [License](./assets/License.txt)
+### [License](./License.txt)
 
 <br>
 
