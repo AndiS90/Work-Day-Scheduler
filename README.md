@@ -34,4 +34,4 @@ I started by creating variables holding the hour snippet elements of the html pa
 ### [License](./assets/License.txt)
 
 <br>
-s
+
